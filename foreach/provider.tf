@@ -5,6 +5,13 @@ terraform {
       version = "5.15.0"
     }
   }
+
+  backend "s3" {
+    bucket   = "rs-remote-state"
+    key      = "foreach.demo"
+    region   = "us-east-1"
+    dynamodb_table = "rs-locking"
+  }
 }
 
 provider "aws" {
